@@ -1,0 +1,14 @@
+nonEmerg <- read.csv("Desktop/311_calls_2010_present.csv", stringsAsFactors = F)
+colNonEmerg <- nonEmerg[c(1,2,6,9,17,24)]
+complaintType <- colNonEmerg$Complaint.Type 
+comKeep <- numeric()
+stringSame <- "Noise"
+for(entry in 1:length(complaintType)) {
+    stringTemp <- substr(complaintType[entry],1,5)
+    if(stringSame == stringTemp) {
+        comKeep <- c(comKeep, entry)
+    }
+}
+complaintList <- colNonEmerg[c(comKeep),] 
+
+# Now I have a data frame with only the columns I want and only those rows that pertain to noise complaints
