@@ -1,0 +1,4 @@
+# Trying to visualize what data I have culled.
+# First time using ggplot
+
+install.packages("ggplot2")
