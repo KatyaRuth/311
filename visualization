@@ -2,3 +2,7 @@
 # First time using ggplot
 
 install.packages("ggplot2")
+
+# I have to figure out how to eliminate the dates and isolate the time value for my data.
+# I'd like to group all the calls into 15 minute blocks, regardless of the date of the call.
+# This is where I realized that dealing with time stamps in R is really hard.
