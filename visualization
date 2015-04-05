@@ -13,3 +13,6 @@ for(entry in dateV) {
 mydates <- dates
 class(mydates) = c('POSIXt','POSIXct')
 timeOnly <- strftime(mydates, format="%H:%M")
+
+# Next step is to classify the different types of noise compalints
+compV <- c(complaintList[,3])
