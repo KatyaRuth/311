@@ -3,6 +3,13 @@
 
 install.packages("ggplot2")
 
-# I have to figure out how to eliminate the dates and isolate the time value for my data.
-# I'd like to group all the calls into 15 minute blocks, regardless of the date of the call.
-# This is where I realized that dealing with time stamps in R is really hard.
+# This part of my codes converts the timestamps to POSIXct form, then strips the date as well as the seconds.
+# Now, I have a vector (timeOnly) of the hour and minute every call was made
+dates <- c()
+for(entry in dateV) {
+    temp <- as.POSIXct(entry,format="%m/%d/%Y %I:%M:%S %p")
+    dates <- c(dates, temp)
+}
+mydates <- dates
+class(mydates) = c('POSIXt','POSIXct')
+timeOnly <- strftime(mydates, format="%H:%M")
