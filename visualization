@@ -14,5 +14,10 @@ mydates <- dates
 class(mydates) = c('POSIXt','POSIXct')
 timeOnly <- strftime(mydates, format="%H:%M")
 
-# Next step is to classify the different types of noise compalints
+# Next step is sort by time, then by the type of complaint.
 compV <- c(complaintList[,3])
+compTime <- as.data.frame(cbind(compV,timeOnly))
+colnames(compTime) <- c("Complaint.Type","Time")
+sorted <- compTime[order(compTime[,2],compTime[,1]),]
+
+# Found a new (rare) type of noise complaint: House of Worship
