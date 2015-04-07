@@ -1,7 +1,4 @@
 # Trying to visualize what data I have culled.
-# First time using ggplot
-
-install.packages("ggplot2")
 
 # This part of my codes converts the timestamps to POSIXct form, then strips the date as well as the seconds.
 # Now, I have a vector (timeOnly) of the hour and minute every call was made
@@ -20,4 +17,7 @@ compTime <- as.data.frame(cbind(compV,timeOnly))
 colnames(compTime) <- c("Complaint.Type","Time")
 sorted <- compTime[order(compTime[,2],compTime[,1]),]
 
-# Found a new (rare) type of noise complaint: House of Worship
+# Now I'm plotting away:
+times <- sorted$Time
+quantities <- table(times)
+plot(quantities)
